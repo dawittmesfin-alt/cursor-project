@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="CompanionAI - Safe and private AI therapy companions for emotional support">
+    <title>CompanionAI - Your AI Therapy Companions</title>
+    
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        img-src 'self' data: https:;
+        connect-src 'self';
+        frame-src 'none';
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+        upgrade-insecure-requests;
+    ">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Security-focused favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><i class="fas fa-heart"></i> CompanionAI</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#companions" class="nav-link">Companions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#safety" class="nav-link">Safety</a>
+                </li>
+            </ul>
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" id="loginBtn">Login</button>
+                <button class="btn btn-primary" id="startChatBtn">Start Chat</button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Find Your Perfect AI Companion</h1>
+                <p class="hero-description">
+                    Connect with caring AI companions designed to provide emotional support, 
+                    thoughtful conversation, and a safe space for your thoughts and feelings.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="meetCompanionsBtn">Meet Our Companions</button>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Safe & Private</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-clock"></i>
+                        <span>24/7 Available</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-heart"></i>
+                        <span>Non-judgmental</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-placeholder">
+                    <i class="fas fa-comments"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companions Section -->
+    <section id="companions" class="companions">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Your AI Companions</h2>
+                <p>Each companion has a unique personality and expertise</p>
+            </div>
+            <div class="companions-grid">
+                <div class="companion-card" data-companion="sarah">
+                    <div class="companion-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Sarah</h3>
+                    <p class="companion-title">The Empathetic Listener</p>
+                    <p class="companion-description">
+                        Sarah specializes in active listening and emotional validation. 
+                        She's here to help you process your feelings and provide gentle guidance.
+                    </p>
+                    <div class="companion-tags">
+                        <span class="tag">Empathy</span>
+                        <span class="tag">Active Listening</span>
+                        <span class="tag">Emotional Support</span>
+                    </div>
+                    <button class="btn btn-primary chat-with-btn" data-companion="sarah">Chat with Sarah</button>
+                </div>
+
+                <div class="companion-card" data-companion="marcus">
+                    <div class="companion-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Marcus</h3>
+                    <p class="companion-title">The Motivational Coach</p>
+                    <p class="companion-description">
+                        Marcus helps you set goals, overcome obstacles, and build confidence. 
+                        He's your cheerleader for personal growth and achievement.
+                    </p>
+                    <div class="companion-tags">
+                        <span class="tag">Motivation</span>
+                        <span class="tag">Goal Setting</span>
+                        <span class="tag">Confidence</span>
+                    </div>
+                    <button class="btn btn-primary chat-with-btn" data-companion="marcus">Chat with Marcus</button>
+                </div>
+
+                <div class="companion-card" data-companion="luna">
+                    <div class="companion-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Luna</h3>
+                    <p class="companion-title">The Mindfulness Guide</p>
+                    <p class="companion-description">
+                        Luna specializes in mindfulness, meditation, and stress reduction. 
+                        She helps you find peace and balance in your daily life.
+                    </p>
+                    <div class="companion-tags">
+                        <span class="tag">Mindfulness</span>
+                        <span class="tag">Meditation</span>
+                        <span class="tag">Stress Relief</span>
+                    </div>
+                    <button class="btn btn-primary chat-with-btn" data-companion="luna">Chat with Luna</button>
+                </div>
+
+                <div class="companion-card" data-companion="alex">
+                    <div class="companion-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Alex</h3>
+                    <p class="companion-title">The Practical Problem Solver</p>
+                    <p class="companion-description">
+                        Alex helps you work through practical challenges and find solutions. 
+                        He's great at breaking down complex problems into manageable steps.
+                    </p>
+                    <div class="companion-tags">
+                        <span class="tag">Problem Solving</span>
+                        <span class="tag">Practical Advice</span>
+                        <span class="tag">Organization</span>
+                    </div>
+                    <button class="btn btn-primary chat-with-btn" data-companion="alex">Chat with Alex</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Interface (Hidden by default) -->
+    <div class="chat-overlay" id="chatOverlay">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-companion-info">
+                    <div class="companion-avatar-small">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div>
+                        <h3 id="chatCompanionName">Companion</h3>
+                        <p id="chatCompanionStatus">Online</p>
+                    </div>
+                </div>
+                <button class="close-chat" id="closeChat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message companion-message">
+                    <div class="message-content">
+                        <p>Hello! I'm here to listen and support you. How are you feeling today?</p>
+                    </div>
+                    <div class="message-time">Just now</div>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <textarea id="chatInput" placeholder="Type your message..." rows="1" maxlength="1000" autocomplete="off" spellcheck="true"></textarea>
+                    <button class="send-message" id="sendMessage" type="button" aria-label="Send message">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="chat-suggestions">
+                    <button class="suggestion-btn" type="button">I'm feeling anxious</button>
+                    <button class="suggestion-btn" type="button">I need motivation</button>
+                    <button class="suggestion-btn" type="button">Can you help me relax?</button>
+                </div>
+                <div class="security-notice">
+                    <small><i class="fas fa-shield-alt"></i> Your messages are processed locally and not stored</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About CompanionAI</h2>
+                <p>Your safe space for emotional support and companionship</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>We believe everyone deserves compassionate support</h3>
+                    <p>
+                        CompanionAI was created to provide accessible, judgment-free emotional support 
+                        to anyone who needs it. Our AI companions are designed to be empathetic, 
+                        understanding, and always available when you need someone to talk to.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-lock"></i>
+                            <div>
+                                <h4>Privacy First</h4>
+                                <p>Your conversations are private and secure</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-brain"></i>
+                            <div>
+                                <h4>AI-Powered</h4>
+                                <p>Advanced AI trained on therapeutic techniques</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>Multiple Personalities</h4>
+                                <p>Choose the companion that fits your needs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-placeholder">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Section -->
+    <section id="safety" class="safety">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Safety & Wellbeing</h2>
+                <p>Important information about our service</p>
+            </div>
+            <div class="safety-content">
+                <div class="safety-card">
+                    <div class="safety-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Important Notice</h3>
+                    <p>
+                        CompanionAI is designed for emotional support and companionship, 
+                        not as a replacement for professional mental health care. 
+                        If you're experiencing a mental health crisis, please contact 
+                        emergency services or a mental health professional.
+                    </p>
+                </div>
+                <div class="safety-card">
+                    <div class="safety-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Privacy & Security</h3>
+                    <p>
+                        <strong>🔒 Zero Data Storage:</strong> All conversations are processed locally in your browser and never stored on any servers.
+                        <br><br>
+                        <strong>🛡️ Client-Side Security:</strong> Advanced Content Security Policy (CSP) and XSS protection prevent malicious code execution.
+                        <br><br>
+                        <strong>🔐 Privacy First:</strong> No tracking, no cookies, no personal data collection. Your conversations stay completely private.
+                    </p>
+                </div>
+                <div class="safety-card">
+                    <div class="safety-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Emergency Resources</h3>
+                    <p>
+                        If you need immediate help, please contact:
+                        <br>• National Suicide Prevention Lifeline: 988
+                        <br>• Crisis Text Line: Text HOME to 741741
+                        <br>• Emergency Services: 911
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-heart"></i> CompanionAI</h3>
+                    <p>Providing compassionate AI companionship for emotional support and wellbeing.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#companions">Companions</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#safety">Safety</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CompanionAI. All rights reserved. | Not a substitute for professional mental health care.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
