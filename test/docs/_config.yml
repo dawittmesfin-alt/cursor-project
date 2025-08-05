@@ -1,0 +1,29 @@
+# GitHub Pages Configuration
+title: CompanionAI - Your AI Therapy Companions
+description: Safe and private AI therapy companions for emotional support
+url: "https://yourusername.github.io/your-repo-name"
+
+# Build settings
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - README.md
+  - _config.yml
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default" 
